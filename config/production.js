@@ -1,7 +1,7 @@
 module.exports = {
     debug: true,
     port: 9086,
-    app_name: "emdata-bi-koa",
+    app_name: "vue-koa",
     task_server: false,
     web_server: true,
     is_use_service: false,// 是否使用emdata-bi-service服务

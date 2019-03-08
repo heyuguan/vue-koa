@@ -1,6 +1,6 @@
 {
     "apps": [{
-        "name": "emdata-bi-koa",
+        "name": "vue-koa",
         "script": "./app.js",
         "watch": ["service", "models", "config", "app.js"],
         "instances": 1,

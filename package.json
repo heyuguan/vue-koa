@@ -9,9 +9,9 @@
         "local": "pm2 start process.json",
         "server": "pm2 start process.json --env=prod",
         "server_task": "pm2 start process_task.json --env=prod",
-        "delete": "pm2 delete emdata-bi-koa",
+        "delete": "pm2 delete vue-koa",
         "delete_task": "pm2 delete emdata-bi-task",
-        "logs": "pm2 logs emdata-bi-koa",
+        "logs": "pm2 logs vue-koa",
         "logs_task": "pm2 logs emdata-bi-task",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
