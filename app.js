@@ -99,7 +99,7 @@ app.use(async function(ctx, next) {
         var controller = arr.length > 1 ? arr[1] : '';
         var action = arr.length > 2 ? arr[2] : '';
         var url = controller + '/' + action;
-        var openUrl = ['/', 'account/login', 'account/logout','importData/localUpload','importData/localUploadLog'];
+        var openUrl = ['/','account/captcha' ,'account/login', 'account/logout','importData/localUpload','importData/localUploadLog'];
         var index = openUrl.indexOf(url);
         if (openUrl.indexOf(url) > -1) {
             await next();
