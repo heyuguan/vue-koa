@@ -1,0 +1,23 @@
+{
+    "apps": [{
+        "name": "emdata-bi-koa",
+        "script": "./app.js",
+        "watch": ["service", "models", "config", "app.js"],
+        "instances": 1,
+        "exec_mode": "cluster",
+        "error_file": "./logs/app-err.log",
+        "out_file": "./logs/app-out.log",
+        "watch_options": {
+            "followSymlinks": false
+        },
+        "env": {
+            "NODE_ENV": "development"
+        },
+        "env_prod": {
+            "NODE_ENV": "production"
+        },
+        "env_my": {
+            "NODE_ENV": "my"
+        }
+    }]
+}
