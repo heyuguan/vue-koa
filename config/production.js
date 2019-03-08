@@ -15,7 +15,12 @@ module.exports = {
         password: '8952622Xa',
         database: 'emdata'
     },
-  
+    redis: {
+        host: '39.105.157.104',
+        port: '6379',
+        usePool: true,
+        password: '8952622Xa'
+    },
     account: {
         expire_in: 7200,
     },
