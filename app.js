@@ -204,25 +204,9 @@ var server = app.listen(config.port, function() {
 emdata.mysql.debug = config.debug;
 emdata.mysql.connect(config.mysql);
 
-emdata.pat.debug = config.debug;
-emdata.pat.connect(config.emr.emr);
-
-emdata.platformDemo.debug = config.debug;
-emdata.platformDemo.connect(config.platformDemo);
-
 // emdata.diagnoseAccount.debug = config.debug;
 // emdata.diagnoseAccount.connect(config.diagnoseAccount);
 
-emdata.mongo.debug = config.debug;
-emdata.mongo.connect(config.mongo.dburl, null, config.mongo.dbname);
-
-emdata.redis.debug = config.debug;
-emdata.redis.connect(config.redis);
-
-emdata.elasticsearch.connect(config.es);
-
-emdata.fdfs.debug = config.debug;
-emdata.fdfs.connect(config.fdfs_client);
 
 // schedule 定时任务 每天早上9点自动执行
 // var rule = new schedule.RecurrenceRule();
