@@ -5,6 +5,9 @@ var redis = require('../../models').redis;
 var uuid = require('node-uuid');
 var logger = require("../../models").logger;
 var config = require('../../config');
+const captcha = require('trek-captcha');
+
+
 
 /**
  * Created by zhanxiaoping 
@@ -51,6 +54,7 @@ router.post('/logout', async function(ctx, next) {
 });
 router.get('/captcha', async function(ctx, next) {
     var query = ctx.request.query;
+    console.log(query);
     var key = 'captcha_' + (query.key || '');
     var size = parseInt(query.size) || 4;
     const {
