@@ -204,6 +204,10 @@ var server = app.listen(config.port, function() {
 emdata.mysql.debug = config.debug;
 emdata.mysql.connect(config.mysql);
 
+
+emdata.redis.debug = config.debug;
+emdata.redis.connect(config.redis);
+
 // emdata.diagnoseAccount.debug = config.debug;
 // emdata.diagnoseAccount.connect(config.diagnoseAccount);
 

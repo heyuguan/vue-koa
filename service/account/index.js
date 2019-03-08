@@ -11,9 +11,20 @@ var config = require('../../config');
  * zhanxp@me.com
  */
 router.post('/login', async function(ctx, next) {
-    var username = ctx.request.body.passport;
-    var password = ctx.request.body.password;
-
+    var query = ctx.request.body;
+    
+    var key = 'captcha_' + (query.captcha_key || '');
+    var captcha_value = await redis.get(key);
+    
+    if (!captcha_value || captcha_value != query.captcha_value) {
+        ctx.json(core.api.error('验证码错误!', 501));
+        return;
+    } else {
+        redis.del(key);
+    }
+     console.log(query);
+    var username = query.passport;
+    var password = query.password;
     var user = await adminService.login(username, password);
     if (user == null) {
         ctx.json(api.error('用户名密码错误，登录失败！'));
@@ -37,6 +48,22 @@ router.post('/logout', async function(ctx, next) {
         await redis.del(ctx.state.user.ticket);
     }
     ctx.json(api.success());
+});
+router.get('/captcha', async function(ctx, next) {
+    var query = ctx.request.query;
+    var key = 'captcha_' + (query.key || '');
+    var size = parseInt(query.size) || 4;
+    const {
+        token,
+        buffer
+    } = await captcha({
+        size: size,
+        style: -1
+    });
+  
+    redis.set(key, token, 15 * 60);
+    ctx.set('Content-Type', 'image/gif');
+    ctx.body = buffer;
 });
 
 router.prefix('/account');
